@@ -1,17 +1,17 @@
 class Face:
 
-    def _init_(self):
-        self.color = 0
-        self.type = ""
+    def __init__(self, color, type):
+        self.__color = color
+        self.__type = type
 
-    def _get_color(self):
-        return self.color
+    def get_color(self):
+        return self.__color
 
-    def _set_color(self, v):
-        self.color = v
+    def set_color(self, color):
+        self.__color = color
 
-    def _get_type(self):
-        return type
+    def get_type(self):
+        return self.__type
 
-    def _set_type(self, v):
-        self.type = v
+    def set_type(self, type):
+        self.__type = type
