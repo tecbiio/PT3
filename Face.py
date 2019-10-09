@@ -1,8 +1,8 @@
 class Face:
 
-    def _init_(self):
-        self.color = -1
-        self.type = ""
+    def _init_(self, c, t):
+        self.color = c
+        self.type = t
 
     def _get_color(self):
         return self.color
