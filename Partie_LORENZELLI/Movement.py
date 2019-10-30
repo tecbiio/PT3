@@ -3,7 +3,7 @@ import RubiksCube
 
 class Movement:
 
-    def rightMovement(self, cube, id):
+    def right(self, cube, id):
         tab = cube.get_tab()
         # Face 0, Couleur Vert
         if (id == 0):
@@ -167,8 +167,11 @@ class Movement:
             tab[0,1,2] = tmp2
         # Face 4, Couleur Blanc
         if (id == 4):
-            rightMovement(cube, 2)
+            right(cube, 2)
         # Face 5, Couleur Jaune
         if (id == 5):
-            rightMovement(cube, 0)
-        return tab
+            right(cube, 0)
+
+    def inverseRight(self, cube, id):
+        for i in range(0,3):
+            right(cube, id)
