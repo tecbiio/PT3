@@ -1,5 +1,3 @@
-# Fichier JAVA à supprimer (ils constituent la base de mon travail)
-
 # Fichier Movement.py
   Fonctions :
   -
@@ -23,6 +21,12 @@
 
 Tableau contenant un entier représentant chaque face de couleur.
 Les fonctions de mouvement, prennent un entier en paramètre qui correspond à la couleur de la face centrale.
+Seule la fonction rightMovement pour id = {0,1,2,3} est opérationnelle
 
-# Fichier RubiksCube.py
-# Fichier Main.py
+# Fichier RubiksCube.py :
+
+Création du tableau propre au cube avec les getteurs et setteurs
+
+# Fichier Main.py :
+
+Fichier de test des objets python
