@@ -167,11 +167,11 @@ class Movement:
             tab[0,1,2] = tmp2
         # Face 4, Couleur Blanc
         if (id == 4):
-            right(cube, 2)
+            self.right(cube, 2)
         # Face 5, Couleur Jaune
         if (id == 5):
-            right(cube, 0)
+            self.right(cube, 0)
 
     def inverseRight(self, cube, id):
         for i in range(0,3):
-            right(cube, id)
+            self.right(cube, id)
