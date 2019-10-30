@@ -166,5 +166,9 @@ class Movement:
             # cote droit avec la sauvegarde
             tab[0,1,2] = tmp2
         # Face 4, Couleur Blanc
+        if (id == 4):
+            rightMovement(cube, 2)
         # Face 5, Couleur Jaune
+        if (id == 5):
+            rightMovement(cube, 0)
         return tab
