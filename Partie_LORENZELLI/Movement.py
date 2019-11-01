@@ -189,7 +189,53 @@ class Movement:
             self.inverseRight(cube, 5)
         if (id == 5):
             self.inverseRight(cube, 4)
-            
+
     def inverseLeft(self, cube, id):
         for i in range(0,3):
             self.left(cube, id)
+
+    def up(self, cube, id):
+        tab = cube.get_tab()
+        if (id == 0):
+            # rotation cote haut des faces
+            tmp1 = tab[0,0,0]
+            tmp2 = tab[0,0,1]
+            tmp3 = tab[0,0,2]
+            tab[0,0,0] = tab[1,0,0]
+            tab[0,0,1] = tab[1,0,1]
+            tab[0,0,2] = tab[1,0,2]
+            tab[1,0,0] = tab[2,0,0]
+            tab[1,0,1] = tab[2,0,1]
+            tab[1,0,2] = tab[2,0,2]
+            tab[2,0,0] = tab[3,0,0]
+            tab[2,0,1] = tab[3,0,1]
+            tab[2,0,2] = tab[3,0,2]
+            tab[3,0,0] = tmp1
+            tab[3,0,1] = tmp2
+            tab[3,0,2] = tmp3
+            # rotation face 4 sur elle-meme
+            tmp1 = tab[4,0,0]
+            tmp2 = tab[4,0,1]
+            tmp3 = tab[4,0,2]
+            tab[4,0,1] = tab[4,1,0]
+            tab[4,0,0] = tab[4,2,0]
+            tab[4,0,2] = tmp1
+            tab[4,1,0] = tab[4,2,1]
+            tab[4,2,0] = tab[4,2,2]
+            tab[4,2,1] = tab[4,1,2]
+            tab[4,2,2] = tmp3
+            tab[4,1,2] = tmp2
+        if (id == 1):
+            self.up(cube, 0)
+        if (id == 2):
+            self.up(cube, 0)
+        if (id == 3):
+            self.up(cube, 0)
+        if (id == 4):
+            self.right(cube, 3)
+        if (id == 5):
+            self.right(cube, 3)
+
+    def inverseUp(self, cube, id):
+        for i in range(0,3):
+            self.up(cube, id)
