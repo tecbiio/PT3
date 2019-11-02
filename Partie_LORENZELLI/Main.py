@@ -30,8 +30,6 @@ print(cube.get_tab())
 # Test movement
 move = Movement()
 print(move)
-
-# Test rightMovement
 cube2 = RubiksCube()
 move.right(cube2, 0)
 move.down(cube2, 0)
