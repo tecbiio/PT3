@@ -3,17 +3,17 @@ Fonctions :
 -
 
   * right : Mouvement français officiel D
-  * inverseRight : 3 fois le mouvement right DI
+  * inverseRight : Mouvement français officiel DI
   * left : Mouvement français officiel G
-  * inverseLeft : 3 fois le mouvement left GI
+  * inverseLeft : Mouvement français officiel GI
   * up : Mouvement français officiel H
-  * inverseUp : 3 fois le mouvement up HI
+  * inverseUp : Mouvement français officiel HI
   * down : Mouvement français officiel B
-  * inverseDown : 3 fois le mouvement down BI
-  * front : à déterminer via une autre fonction A
-  * inverseFront : à déterminer via une autre fonction AI
-  * behind : à déterminer via une autre fonction P
-  * inverseBehind : à déterminer via une autre fonction PI
+  * inverseDown : Mouvement français officiel BI
+  * front : Mouvement français officiel A
+  * inverseFront : Mouvement français officiel AI
+  * behind : Mouvement français officiel P
+  * inverseBehind : Mouvement français officiel PI
 
 Système de coordonnées par convention du tableau représentant le cube
 -
