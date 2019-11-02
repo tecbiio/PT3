@@ -25,9 +25,9 @@ Système de coordonnées par convention du tableau représentant le cube
 Utilisation de Movement.py :
 -
 
-Tableau contenant un entier représentant chaque face de couleur.
-Les fonctions de mouvement, prennent un entier en paramètre qui correspond à la couleur de la face centrale.
-Seule la fonction rightMovement pour id = {0,1,2,3} est opérationnelle
+Tableau contenant un entier représentant chaque face de couleur.  
+Les fonctions de mouvement, prennent un entier en paramètre qui correspond à la couleur de la face centrale.  
+Seule la fonction rightMovement pour id = {0,1,2,3} est opérationnelle.  
 
 # Fichier RubiksCube.py :
 Fonctions
@@ -40,4 +40,8 @@ Fonctions
 
 # Fichier Main.py :
 
-Fichier de test des objets python
+Fichier de test des objets python. 
+Pour tester, il faut modifier ou créer un fichier de test et utiliser les fonctions une par une ou en les combinant entre elles.  
+Le squelette de chaque fonction est [Objet Movement].[Fonction à tester]([Objet RubiksCube], [id de la face])  
+Je pense faire la phase de test via des combinaisons de fonctions dans le main que je reproduirais sur un RubiksCube afin de m'assurer de la fonctionnalité des fonctions.  
+Plus la combinaisons de fonctions sera grande, plus le test sera significatif.  
