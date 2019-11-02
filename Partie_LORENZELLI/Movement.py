@@ -90,8 +90,8 @@ class Movement:
             # rotation cote droit
             # sauvegarde cote droit
             tmp1 = tab[2,0,2]
-            tmp2 = tab[2,0,2]
-            tmp3 = tab[2,0,2]
+            tmp2 = tab[2,1,2]
+            tmp3 = tab[2,2,2]
             # cote gauche face 5 sur cote droit face 2
             tab[2,2,2] = tab[5,0,0]
             tab[2,1,2] = tab[5,1,0]
@@ -239,3 +239,85 @@ class Movement:
     def inverseUp(self, cube, id):
         for i in range(0,3):
             self.up(cube, id)
+
+    def down(self, cube, id):
+        tab = cube.get_tab()
+        if (id == 0):
+            # rotation cote bas des faces
+            tmp1 = tab[0,2,0]
+            tmp2 = tab[0,2,1]
+            tmp3 = tab[0,2,2]
+            tab[0,2,0] = tab[3,2,0]
+            tab[0,2,1] = tab[3,2,1]
+            tab[0,2,2] = tab[3,2,2]
+            tab[3,2,0] = tab[2,2,0]
+            tab[3,2,1] = tab[2,2,1]
+            tab[3,2,2] = tab[2,2,2]
+            tab[2,2,0] = tab[1,2,0]
+            tab[2,2,1] = tab[1,2,1]
+            tab[2,2,2] = tab[1,2,2]
+            tab[1,2,0] = tmp1
+            tab[1,2,1] = tmp2
+            tab[1,2,2] = tmp3
+            # rotation face 5 sur elle-meme
+            tmp1 = tab[5,0,0]
+            tmp2 = tab[5,0,1]
+            tmp3 = tab[5,0,2]
+            tab[5,0,1] = tab[5,1,0]
+            tab[5,0,0] = tab[5,2,0]
+            tab[5,0,2] = tmp1
+            tab[5,1,0] = tab[5,2,1]
+            tab[5,2,0] = tab[5,2,2]
+            tab[5,2,1] = tab[5,1,2]
+            tab[5,2,2] = tmp3
+            tab[5,1,2] = tmp2
+        if (id == 1):
+            self.down(cube, 0)
+        if (id == 2):
+            self.down(cube, 0)
+        if (id == 3):
+            self.down(cube, 0)
+        if (id == 4):
+            self.inverseRight(cube, 1)
+        if (id == 5):
+            self.inverseRight(cube, 1)
+
+    def inverseDown(self, cube, id):
+        for i in range(0,3):
+            self.down(cube, id)
+
+    def front(self, cube, id):
+        if (id == 0):
+            self.right(cube, 3)
+        if (id == 1):
+            self.right(cube, 0)
+        if (id == 2):
+            self.right(cube, 1)
+        if (id == 3):
+            self.right(cube, 2)
+        if (id == 4):
+            self.up(cube, 1)
+        if (id == 5):
+            self.down(cube, 3)
+
+    def inverseFront(self, cube, id):
+        for i in range(0,3):
+            self.front(cube, id)
+
+    def behind(self, cube, id):
+        if (id == 0):
+            self.right(cube, 1)
+        if (id == 1):
+            self.right(cube, 2)
+        if (id == 2):
+            self.right(cube, 3)
+        if (id == 3):
+            self.right(cube, 0)
+        if (id == 4):
+            self.down(cube, 3)
+        if (id == 5):
+            self.up(cube, 1)
+
+    def inverseBehind(self, cube, id):
+        for i in range(0,3):
+            self.behind(cube, id)

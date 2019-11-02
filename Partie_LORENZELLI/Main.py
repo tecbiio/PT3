@@ -33,7 +33,8 @@ print(move)
 
 # Test rightMovement
 cube2 = RubiksCube()
-move.up(cube2, 0)
+move.right(cube2, 0)
+move.down(cube2, 0)
 print(cube2.get_tab())
 
 # Test rotation d'une face suivant le mouvement right
