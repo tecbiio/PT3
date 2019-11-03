@@ -1,2 +1,2 @@
-Test avec succés :
-1 : inverseFront4, front2, inverseBehind3, inverseUp3, up4, left5, inverseRight0, inverseDown0, inverseLeft2, front4
+Test avec succès :
+1 : right0, left1, down5

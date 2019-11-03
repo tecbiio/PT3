@@ -19,7 +19,7 @@ Système de coordonnées par convention du tableau représentant le cube
 -
 
   * Pour les faces 0, 1, 2, 3 -> face blanche (4) au dessus et jaune (5) en dessous
-  * Pour la face 4 -> face verte (0) en dessous et bleu (2) au dessus
+  * Pour la face 4 -> face verte (0) au dessus et bleu (2) en dessous
   * Pour la face 5 -> face verte (0) au dessus et bleu (2) en dessous
 
 Utilisation de Movement.py :
@@ -39,7 +39,7 @@ Fonctions
 
 # Fichier Main.py :
 
-Fichier de test des objets python. 
+Fichier de test des objets python.
 
 # Fichier TestMovement.py :
 

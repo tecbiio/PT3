@@ -279,9 +279,9 @@ class Movement:
         if (id == 3):
             self.down(cube, 0)
         if (id == 4):
-            self.inverseRight(cube, 1)
+            self.right(cube, 1)
         if (id == 5):
-            self.inverseRight(cube, 1)
+            self.right(cube, 1)
 
     def inverseDown(self, cube, id):
         for i in range(0,3):
