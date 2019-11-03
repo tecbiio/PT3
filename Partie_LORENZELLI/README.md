@@ -19,13 +19,12 @@ Système de coordonnées par convention du tableau représentant le cube
 -
 
   * Pour les faces 0, 1, 2, 3 -> face blanche (4) au dessus et jaune (5) en dessous
-  * Pour la face 4 -> face verte (0) au dessus et bleu (2) en dessous
-  * Pour la face 5 -> face verte (0) au dessus et bleu (2) en dessous
+  * Pour la face 4 et 5 -> face verte (0) au dessus et bleu (2) en dessous
 
 Utilisation de Movement.py :
 -
 
-Tableau contenant un entier représentant chaque face de couleur.  
+Tableau contenant un entier représentant chaque couleur.  
 Les fonctions de mouvement, prennent un entier en paramètre qui correspond à la couleur de la face centrale.  
 
 # Fichier RubiksCube.py :
@@ -43,8 +42,8 @@ Fichier de test des objets python.
 
 # Fichier TestMovement.py :
 
-Fichier de test avec interface de Movement.  
-Plus la combinaisons de fonctions sera grande, plus le test sera significatif.  
+Fichier de test de Movement avec interface.  
+Plus la combinaisons de fonctions est grande, plus le test est significatif.  
 
 # Fichier TestMovement.txt :
 
