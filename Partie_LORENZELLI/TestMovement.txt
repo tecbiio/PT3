@@ -1,2 +1,3 @@
 Test avec succès :
 1 : right0, left1, down5
+2 : right4, front3, up2, behind1, down0
