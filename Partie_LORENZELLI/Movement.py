@@ -179,17 +179,17 @@ class Movement:
 
     def left(self, cube, id):
         if (id == 0):
-            self.inverseRight(cube, 2)
+            self.right(cube, 2)
         if (id == 1):
-            self.inverseRight(cube, 3)
+            self.right(cube, 3)
         if (id == 2):
-            self.inverseRight(cube, 0)
+            self.right(cube, 0)
         if (id == 3):
-            self.inverseRight(cube, 1)
+            self.right(cube, 1)
         if (id == 4):
-            self.inverseRight(cube, 5)
+            self.right(cube, 0)
         if (id == 5):
-            self.inverseRight(cube, 4)
+            self.right(cube, 2)
 
     def inverseLeft(self, cube, id):
         for i in range(0,3):
