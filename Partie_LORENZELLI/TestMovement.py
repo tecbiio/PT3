@@ -16,7 +16,7 @@ while (end == 0):
     print("up : 4, inverseUp : 5")
     print("down : 6, inverseDown : 7")
     print("front : 8, inverseFront : 9")
-    print("behind : 10, inverseBehind : 11")
+    print("back : 10, inverseBack : 11")
     fct = int(input(" "))
     print("Sur quelle face voulez-vous appliquer cette fonction ?")
     print("Vert : 0")
@@ -57,11 +57,11 @@ while (end == 0):
         move.inverseFront(cube, id)
         res = res + "inverseFront" + str(id) + ", "
     if (fct == 10):
-        move.behind(cube, id)
-        res = res + "behind" + str(id) + ", "
+        move.back(cube, id)
+        res = res + "back" + str(id) + ", "
     if (fct == 11):
-        move.inverseBehind(cube, id)
-        res = res + "inverseBehind" + str(id) + ", "
+        move.inverseBack(cube, id)
+        res = res + "inverseBack" + str(id) + ", "
     if (i == nb):
         end = 1
         print(cube.get_tab())

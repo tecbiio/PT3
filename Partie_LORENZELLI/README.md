@@ -12,14 +12,14 @@ Fonctions :
   * inverseDown : Mouvement français officiel BI
   * front : Mouvement français officiel A
   * inverseFront : Mouvement français officiel AI
-  * behind : Mouvement français officiel P
-  * inverseBehind : Mouvement français officiel PI
+  * back : Mouvement français officiel P
+  * inverseBack : Mouvement français officiel PI
 
 Système de coordonnées par convention du tableau représentant le cube
 -
 
   * Pour les faces 0, 1, 2, 3 -> face blanche (4) au dessus et jaune (5) en dessous
-  * Pour la face 4 et 5 -> face verte (0) au dessus et bleu (2) en dessous
+  * Pour les faces 4 et 5 -> face verte (0) au dessus et bleu (2) en dessous
 
 Utilisation de Movement.py :
 -

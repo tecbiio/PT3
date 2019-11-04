@@ -305,7 +305,7 @@ class Movement:
         for i in range(0,3):
             self.front(cube, id)
 
-    def behind(self, cube, id):
+    def back(self, cube, id):
         if (id == 0):
             self.right(cube, 1)
         if (id == 1):
@@ -319,6 +319,6 @@ class Movement:
         if (id == 5):
             self.up(cube, 1)
 
-    def inverseBehind(self, cube, id):
+    def inverseBack(self, cube, id):
         for i in range(0,3):
-            self.behind(cube, id)
+            self.back(cube, id)
