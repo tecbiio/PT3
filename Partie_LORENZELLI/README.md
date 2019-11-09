@@ -21,7 +21,7 @@ Système de coordonnées par convention du tableau représentant le cube
   * Pour les faces 0, 1, 2, 3 -> face blanche (4) au dessus et jaune (5) en dessous
   * Pour les faces 4 et 5 -> face verte (0) au dessus et bleu (2) en dessous
 
-Utilisation de Movement.py :
+Utilisation de MovementCube.py :
 -
 
 Tableau contenant un entier représentant chaque couleur.  

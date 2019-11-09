@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 from RubiksCube import RubiksCube
-from Movement import Movement
+from MovementCube import MovementCube
 
 res = "Mouvement : "
 end = 0
 nb = int(input("Combien de fonctions de mouvements souhaitez-vous combiner ?"))
 i = 0
-move = Movement()
+move = MovementCube()
 cube = RubiksCube()
 while (end == 0):
     i = i + 1

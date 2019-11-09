@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import numpy as np
 from RubiksCube import RubiksCube
-from Movement import Movement
+from MovementCube import MovementCube
 
 # Test constructeur
 """
@@ -29,7 +29,7 @@ print(cube.get_tab())
 """
 
 # Test movement
-move = Movement()
+move = MovementCube()
 print(move)
 cube2 = RubiksCube()
 move.up(cube2, 3)
