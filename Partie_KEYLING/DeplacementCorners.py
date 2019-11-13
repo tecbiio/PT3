@@ -10,81 +10,81 @@ import Swap as s
 class DeplacementCorners:
     def WOB:
     def WBR:
-        m.rightMovement()
-        m.rightMovement()
+        m.right()
+        m.right()
         s.swapCorners()
-        m.rightMovement()
-        m.rightMovement()
+        m.right()
+        m.right()
     def WRG:
-        m.frontMovement()
-        m.frontMovement()
-        m.inverseDownMovement()
+        m.front()
+        m.front()
+        m.inverseDown()
         s.swapCorners()
-        m.downMovement()
-        m.frontMovement()
-        m.frontMovement()
+        m.down()
+        m.front()
+        m.front()
     def WGO:
-        m.frontMovement()
+        m.front()
         s.swapCorners()
-        m.frontMovement()
+        m.front()
     def BOY:
-        m.inverseDownMovement()
-        m.inverseFrontMovement()
+        m.inverseDown()
+        m.inverseFront()
         s.swapCorners()
-        m.frontMovement()
-        m.downMovement()
+        m.front()
+        m.down()
     def BYR:
-        m.rightMovement()
+        m.right()
         s.swapCorners()
-        m.inverseRightMovement()
+        m.inverseRight()
     def BRW:
-        m.rightMovement()
-        m.downMovement()
+        m.right()
+        m.down()
         s.swapCorners()
-        m.inverseDownMovement()
-        m.inverseRightMovement()
+        m.inverseDown()
+        m.inverseRight()
     def BWO:
     def RBY:
-        m.downMovement()
-        m.rightMovement()
-        m.downMovement()
+        m.down()
+        m.right()
+        m.down()
         s.swapCorners()
-        m.inverseDownMovement()
-        m.inverseRightMovement()
-        m.inverseDownMovement()
+        m.inverseDown()
+        m.inverseRight()
+        m.inverseDown()
     def RYG
     def RGW:
-        m.frontMovement()
+        m.front()
         s.swapCorners()
-        m.inverseFrontMovement()
+        m.inverseFront()
     def RWB
     def GRY
     def GYO
     def GOW
     def GWR:
-        m.inverseRightMovement()
+        m.inverseRight()
         s.swapCorners()
-        m.rightMovement()
+        m.right()
     def OGY:
-        m.inverseFrontMovement()
+        m.inverseFront()
         s.swapCorners()
-        m.frontMovement()
+        m.front()
     def OYB
     def OBW
     def OWG
     def YBO:
-        m.downMovement()
-        m.downMovement()
+        m.down()
+        m.down()
         s.swapCorners()
-        m.downMovement()
-        m.downMovement()
+        m.down()
+        m.down()
     def YOG:
-        m.inverseDownMovement()
+        m.inverseDown()
         s.swapCorners()
-        m.downMovement()
+        m.down()
     def YGR:
         s.swapCorners()
     def YRB:
-        m.downMovement()
+        m.down()
         s.swapCorners()
-        m.inverseDownMovement()
+        m.inverseDown()
