@@ -34,6 +34,12 @@ Parce que la image jaune.jpg est floue, Le programme ne traite pas la couleur av
 
 Dans __le répertoire c__, j'ai essayé d'obtenir les couleurs rouge et orange de la photo et de les afficher, mais les résultats ont été infructueux.
 
-<img src="red.png" alt="red:" style="zoom:50%;" />
 
-<img src="orange.png" alt="orange:" style="zoom:50%;" />
+
+<img src="red.png" alt="red:" style="zoom:25%;" />
+
+​														(red)
+
+<img src="orange.png" alt="orange:" style="zoom:25%;" />
+
+​														(orange)
