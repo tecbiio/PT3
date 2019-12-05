@@ -18,3 +18,22 @@ Pour le tester, exécuter python colordetect.py. les 2 fichiers python sont oper
 
 
 
+## Test avec le robot
+
+après la première test avec le robot, Les photos sont floues et ne peuvent pas être traitées avec succès.
+
+Dans __le répertoire Comparaison__, nous pouvons traiter avec succès la image up.jpg (exemple):
+
+__les colors de up:O G W O Y G Y R R__ 
+
+Mais nous ne pouvons pas traiter la image jaune.jpg (robot):
+
+__TypeError: 'NoneType' object is not subscriptable__
+
+Parce que la image jaune.jpg est floue, Le programme ne traite pas la couleur avec précision.
+
+Dans __le répertoire c__, j'ai essayé d'obtenir les couleurs rouge et orange de la photo et de les afficher, mais les résultats ont été infructueux.
+
+<img src="red.png" alt="red:" style="zoom:50%;" />
+
+<img src="orange.png" alt="orange:" style="zoom:50%;" />
