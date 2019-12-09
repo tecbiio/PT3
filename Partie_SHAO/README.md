@@ -18,7 +18,7 @@ Pour le tester, exécuter python colordetect.py. les 2 fichiers python sont oper
 
 
 
-## Test avec le robot
+## Test avec le robot 
 
 après la première test avec le robot, Les photos sont floues et ne peuvent pas être traitées avec succès.
 
@@ -42,4 +42,13 @@ Dans __le répertoire c__, j'ai essayé d'obtenir les couleurs rouge et orange d
 
 <img src="orange.png" alt="orange:" style="zoom:25%;" />
 
+
+
 ​														(orange)
+
+##Test avec le robot  (09/12/2019)
+
+Trouver la problème. Il faut trouver les bons chiffres pour déterminer chaque couleur du cube de Rubik.
+
+Actuellement, les chiffres du vert et du jaune, du rouge et l'orange sont très proche.
+
