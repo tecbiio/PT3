@@ -46,7 +46,7 @@ Dans __le répertoire c__, j'ai essayé d'obtenir les couleurs rouge et orange d
 
 ​														(orange)
 
-##Test avec le robot  (09/12/2019)
+## Test avec le robot  (09/12/2019)
 
 Trouver la problème. Il faut trouver les bons chiffres pour déterminer chaque couleur du cube de Rubik.
 
