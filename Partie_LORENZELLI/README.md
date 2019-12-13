@@ -1,4 +1,10 @@
 # Fichier Movement.py
+
+
+# Fichier MovementRobot.py
+
+
+# Fichier MovementCube.py
 Fonctions :
 -
 
@@ -10,12 +16,8 @@ Fonctions :
   * inverseUp : Mouvement français officiel HI
   * down : Mouvement français officiel B
   * inverseDown : Mouvement français officiel BI
-  * front : Mouvement français officiel A
-  * inverseFront : Mouvement français officiel AI
-  * back : Mouvement français officiel P
-  * inverseBack : Mouvement français officiel PI
 
-Système de coordonnées par convention du tableau représentant le cube
+Système de coordonnées par convention du tableau représentant le cube :
 -
 
   * Pour les faces 0, 1, 2, 3 -> face blanche (4) au dessus et jaune (5) en dessous
@@ -28,13 +30,16 @@ Tableau contenant un entier représentant chaque couleur.
 Les fonctions de mouvement, prennent un entier en paramètre qui correspond à la couleur de la face centrale.  
 
 # Fichier RubiksCube.py :
-Fonctions
+
+Fichier de création d'un cube virtuel
+
+Fonctions :
 -
 
   * __init__ : constructeur du cube qui implique la construction du tableau
-  * get_tab : getteur du tableau
-  * set_tab : setteur du tableau avec un tableau
-  * set_val_tab : inclut une valeur au coordonnées spécifiées en paramètre
+  * getTab : getteur du tableau
+  * setTab : setteur du tableau avec un tableau
+  * getValTab : retourne la valeur des coordonnées spécifiées en paramètre
 
 # Fichier Main.py :
 
@@ -44,8 +49,3 @@ Fichier de test des objets python.
 
 Fichier de test de Movement avec interface.  
 Plus la combinaisons de fonctions est grande, plus le test est significatif.  
-
-# Fichier TestMovement.txt :
-
-Fichier de récupération des tests avec succés.  
-Si défaut : remise à zéro après changements dans Movement.py.  
