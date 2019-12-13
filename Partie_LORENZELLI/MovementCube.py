@@ -5,7 +5,7 @@ import RubiksCube
 class Movement:
 
     def right(self, cube, id):
-        tab = cube.get_tab()
+        tab = cube.getTab()
         # Face 0, Couleur Vert
         if (id == 0):
             # rotation arête droite

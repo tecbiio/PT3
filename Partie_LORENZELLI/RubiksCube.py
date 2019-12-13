@@ -10,11 +10,11 @@ class RubiksCube:
             tab[i,:,:] = i
         self.__tab = tab
 
-    def get_tab(self):
+    def getTab(self):
         return self.__tab
 
-    def set_tab(self, tab):
+    def setTab(self, tab):
         self.__tab = tab
 
-    def set_val_tab(self, index1, index2, index3, val):
-        self.__tab[index1, index2, index3] = val
+    def getValTab(self, index1, index2, index3):
+        return self.__tab[index1, index2, index3]
