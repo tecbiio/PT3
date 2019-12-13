@@ -286,39 +286,3 @@ class Movement:
     def inverseDown(self, cube, id):
         for i in range(0,3):
             self.down(cube, id)
-
-    def front(self, cube, id):
-        if (id == 0):
-            self.right(cube, 3)
-        if (id == 1):
-            self.right(cube, 0)
-        if (id == 2):
-            self.right(cube, 1)
-        if (id == 3):
-            self.right(cube, 2)
-        if (id == 4):
-            self.up(cube, 1)
-        if (id == 5):
-            self.down(cube, 3)
-
-    def inverseFront(self, cube, id):
-        for i in range(0,3):
-            self.front(cube, id)
-
-    def back(self, cube, id):
-        if (id == 0):
-            self.right(cube, 1)
-        if (id == 1):
-            self.right(cube, 2)
-        if (id == 2):
-            self.right(cube, 3)
-        if (id == 3):
-            self.right(cube, 0)
-        if (id == 4):
-            self.down(cube, 3)
-        if (id == 5):
-            self.up(cube, 1)
-
-    def inverseBack(self, cube, id):
-        for i in range(0,3):
-            self.back(cube, id)
