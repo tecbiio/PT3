@@ -1,10 +1,15 @@
 # Fichier Movement.py
 
+Fichier factorisant les fichiers de mouvements
 
 # Fichier MovementRobot.py
 
+Fichier de mouvements pour un cube physique
 
 # Fichier MovementCube.py
+
+Fichier de mouvements pour un cube virtuel
+
 Fonctions :
 -
 
