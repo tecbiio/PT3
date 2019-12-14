@@ -4,6 +4,7 @@ import MovementCube
 
 class RubiksCube:
 
+    # Par défaut on imagine un cube entièrement fait
     def __init__(self):
         tab = np.zeros((6,3,3))
         for i in range(0,6):

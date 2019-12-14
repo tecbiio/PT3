@@ -173,7 +173,7 @@ class Movement:
         if (id == 5):
             self.right(cube, 0)
 
-    def inverseRight(self, cube, id):
+    def invRight(self, cube, id):
         for i in range(0,3):
             self.right(cube, id)
 
@@ -191,12 +191,12 @@ class Movement:
         if (id == 5):
             self.right(cube, 2)
 
-    def inverseLeft(self, cube, id):
+    def invLeft(self, cube, id):
         for i in range(0,3):
             self.left(cube, id)
 
     def up(self, cube, id):
-        tab = cube.get_tab()
+        tab = cube.getTab()
         if (id == 0):
             # rotation arête haut des faces
             tmp1 = tab[0,0,0]
@@ -237,12 +237,12 @@ class Movement:
         if (id == 5):
             self.right(cube, 3)
 
-    def inverseUp(self, cube, id):
+    def invUp(self, cube, id):
         for i in range(0,3):
             self.up(cube, id)
 
     def down(self, cube, id):
-        tab = cube.get_tab()
+        tab = cube.getTab()
         if (id == 0):
             # rotation arête bas des faces
             tmp1 = tab[0,2,0]
@@ -283,6 +283,160 @@ class Movement:
         if (id == 5):
             self.right(cube, 1)
 
-    def inverseDown(self, cube, id):
+    def invDown(self, cube, id):
         for i in range(0,3):
             self.down(cube, id)
+
+    def x(self, cube):
+        tab = cube.getTab()
+        # Changements des couleurs des faces
+        tmp1 = tab[0,0,0]
+        tmp2 = tab[0,0,1]
+        tmp3 = tab[0,0,2]
+        tmp4 = tab[0,1,0]
+        tmp5 = tab[0,1,1]
+        tmp6 = tab[0,1,2]
+        tmp7 = tab[0,2,0]
+        tmp8 = tab[0,2,1]
+        tmp9 = tab[0,2,2]
+        tab[0,0,0] = tab[1,0,0]
+        tab[0,0,1] = tab[1,0,1]
+        tab[0,0,2] = tab[1,0,2]
+        tab[0,1,0] = tab[1,1,0]
+        tab[0,1,1] = tab[1,1,1]
+        tab[0,1,2] = tab[1,1,2]
+        tab[0,2,0] = tab[1,2,0]
+        tab[0,2,1] = tab[1,2,1]
+        tab[0,2,2] = tab[1,2,2]
+        tab[1,0,0] = tab[2,0,0]
+        tab[1,0,1] = tab[2,0,1]
+        tab[1,0,2] = tab[2,0,2]
+        tab[1,1,0] = tab[2,1,0]
+        tab[1,1,1] = tab[2,1,1]
+        tab[1,1,2] = tab[2,1,2]
+        tab[1,2,0] = tab[2,2,0]
+        tab[1,2,1] = tab[2,2,1]
+        tab[1,2,2] = tab[2,2,2]
+        tab[2,0,0] = tab[3,0,0]
+        tab[2,0,1] = tab[3,0,1]
+        tab[2,0,2] = tab[3,0,2]
+        tab[2,1,0] = tab[3,1,0]
+        tab[2,1,1] = tab[3,1,1]
+        tab[2,1,2] = tab[3,1,2]
+        tab[2,2,0] = tab[3,2,0]
+        tab[2,2,1] = tab[3,2,1]
+        tab[2,2,2] = tab[3,2,2]
+        tab[3,0,0] = tmp1
+        tab[3,0,1] = tmp2
+        tab[3,0,2] = tmp3
+        tab[3,1,0] = tmp4
+        tab[3,1,1] = tmp5
+        tab[3,1,2] = tmp6
+        tab[3,2,0] = tmp7
+        tab[3,2,1] = tmp8
+        tab[3,2,2] = tmp9
+        """ Il n'y a pas de rotation car il ne s'agit pas d'un mouvement qui a
+        pour but de résoudre le cube mais de connaissance des couleurs sur
+        les faces
+        (La convention reste la même)"""
+        """# rotation de la face 5
+        tmp1 = tab[5,0,0]
+        tmp2 = tab[5,0,1]
+        tmp3 = tab[5,0,2]
+        tab[5,0,1] = tab[5,1,0]
+        tab[5,0,0] = tab[5,2,0]
+        tab[5,0,2] = tmp1
+        tab[5,1,0] = tab[5,2,1]
+        tab[5,2,0] = tab[5,2,2]
+        tab[5,2,1] = tab[5,1,2]
+        tab[5,2,2] = tmp3
+        tab[5,1,2] = tmp2
+        # rotation de la face 4
+        tmp1 = tab[4,0,0]
+        tmp2 = tab[4,0,1]
+        tmp3 = tab[4,0,2]
+        tab[4,0,1] = tab[4,1,2]
+        tab[4,0,0] = tmp3
+        tab[4,0,2] = tab[4,2,2]
+        tab[4,1,2] = tab[4,2,1]
+        tab[4,2,2] = tab[4,2,0]
+        tab[4,2,1] = tab[4,1,0]
+        tab[4,1,0] = tmp2
+        tab[4,2,0] = tmp1"""
+
+    def y(self, cube):
+        tab = cube.getTab()
+        # Changements des couleurs des faces
+        tmp1 = tab[0,0,0]
+        tmp2 = tab[0,0,1]
+        tmp3 = tab[0,0,2]
+        tmp4 = tab[0,1,0]
+        tmp5 = tab[0,1,1]
+        tmp6 = tab[0,1,2]
+        tmp7 = tab[0,2,0]
+        tmp8 = tab[0,2,1]
+        tmp9 = tab[0,2,2]
+        tab[0,0,0] = tab[4,0,0]
+        tab[0,0,1] = tab[4,0,1]
+        tab[0,0,2] = tab[4,0,2]
+        tab[0,1,0] = tab[4,1,0]
+        tab[0,1,1] = tab[4,1,1]
+        tab[0,1,2] = tab[4,1,2]
+        tab[0,2,0] = tab[4,2,0]
+        tab[0,2,1] = tab[4,2,1]
+        tab[0,2,2] = tab[4,2,2]
+        tab[4,0,0] = tab[2,0,0]
+        tab[4,0,1] = tab[2,0,1]
+        tab[4,0,2] = tab[2,0,2]
+        tab[4,1,0] = tab[2,1,0]
+        tab[4,1,1] = tab[2,1,1]
+        tab[4,1,2] = tab[2,1,2]
+        tab[4,2,0] = tab[2,2,0]
+        tab[4,2,1] = tab[2,2,1]
+        tab[4,2,2] = tab[2,2,2]
+        tab[2,0,0] = tab[5,0,0]
+        tab[2,0,1] = tab[5,0,1]
+        tab[2,0,2] = tab[5,0,2]
+        tab[2,1,0] = tab[5,1,0]
+        tab[2,1,1] = tab[5,1,1]
+        tab[2,1,2] = tab[5,1,2]
+        tab[2,2,0] = tab[5,2,0]
+        tab[2,2,1] = tab[5,2,1]
+        tab[2,2,2] = tab[5,2,2]
+        tab[5,0,0] = tmp1
+        tab[5,0,1] = tmp2
+        tab[5,0,2] = tmp3
+        tab[5,1,0] = tmp4
+        tab[5,1,1] = tmp5
+        tab[5,1,2] = tmp6
+        tab[5,2,0] = tmp7
+        tab[5,2,1] = tmp8
+        tab[5,2,2] = tmp9
+        """ Il n'y a pas de rotation car il ne s'agit pas d'un mouvement qui a
+        pour but de résoudre le cube mais de connaissance des couleurs sur
+        les faces
+        (La convention reste la même)"""
+        """# rotation de la face 1
+        tmp1 = tab[1,0,0]
+        tmp2 = tab[1,0,1]
+        tmp3 = tab[1,0,2]
+        tab[1,0,1] = tab[1,1,2]
+        tab[1,0,0] = tmp3
+        tab[1,0,2] = tab[1,2,2]
+        tab[1,1,2] = tab[1,2,1]
+        tab[1,2,2] = tab[1,2,0]
+        tab[1,2,1] = tab[1,1,0]
+        tab[1,1,0] = tmp2
+        tab[1,2,0] = tmp1
+        # rotation de la face 3
+        tmp1 = tab[3,0,0]
+        tmp2 = tab[3,0,1]
+        tmp3 = tab[3,0,2]
+        tab[3,0,1] = tab[3,1,0]
+        tab[3,0,0] = tab[3,2,0]
+        tab[3,0,2] = tmp1
+        tab[3,1,0] = tab[3,2,1]
+        tab[3,2,0] = tab[3,2,2]
+        tab[3,2,1] = tab[3,1,2]
+        tab[3,2,2] = tmp3
+        tab[3,1,2] = tmp2"""
