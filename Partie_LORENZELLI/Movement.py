@@ -18,6 +18,18 @@ s'adapter """
 
 class Movement():
 
+    def initialisation(self):
+        servo = maestro.Controller()
+        mr = MovementRobot.Movement()
+        mr.initialisation(servo)
+        servo.close()
+
+    def fin(self):
+        servo = maestro.Controller()
+        mr = MovementRobot.Movement()
+        mr.fin(servo)
+        servo.close()
+
     def right(self, cube):
         servo = maestro.Controller()
         mr = MovementRobot.Movement()
@@ -83,13 +95,71 @@ class Movement():
 
     def invRight(self, cube):
         servo = maestro.Controller()
-        for i in range(0,3):
-            self.right(cube)
+        mr = MovementRobot.Movement()
+        mc = MovementCube.Movement()
+        id = cube.getValTab(0, 1, 1) #Couleur de la face en face
+        topid = cube.getValTab(4, 1, 1) #Couleur de la face au dessus
+        if (id == 0):
+            if (topid == 1):
+                mc.invDown(cube, id)
+            elif (topid == 3):
+                mc.invUp(cube, id)
+            elif (topid == 4):
+                mc.invRight(cube, id)
+            elif (topid == 5):
+                mc.invLeft(cube, id)
+        elif (id == 1):
+            if (topid == 0):
+                mc.invUp(cube, id)
+            elif (topid == 2):
+                mc.invDown(cube, id)
+            elif (topid == 4):
+                mc.invRight(cube, id)
+            elif (topid == 5):
+                mc.invLeft(cube, id)
+        elif (id == 2):
+            if (topid == 1):
+                mc.invUp(cube, id)
+            elif (topid == 3):
+                mc.invDown(cube, id)
+            elif (topid == 4):
+                mc.invRight(cube, id)
+            elif (topid == 5):
+                mc.invLeft(cube, id)
+        elif (id == 3):
+            if (topid == 0):
+                mc.invDown(cube, id)
+            elif (topid == 2):
+                mc.invUp(cube, id)
+            elif (topid == 4):
+                mc.invRight(cube, id)
+            elif (topid == 5):
+                mc.invLeft(cube, id)
+        elif (id == 4):
+            if (topid == 0):
+                mc.invRight(cube, id)
+            elif (topid == 1):
+                mc.invUp(cube, id)
+            elif (topid == 2):
+                mc.invLeft(cube, id)
+            elif (topid == 3):
+                mc.invDown(cube, id)
+        elif (id == 5):
+            if (topid == 0):
+                mc.invRight(cube, id)
+            elif (topid == 1):
+                mc.invDown(cube, id)
+            elif (topid == 2):
+                mc.invLeft(cube, id)
+            elif (topid == 3):
+                mc.invUp(cube, id)
         mr.invRight(servo)
         servo.close()
 
     def left(self, cube):
         servo = maestro.Controller()
+        mr = MovementRobot.Movement()
+        mc = MovementCube.Movement()
         id = cube.getValTab(0, 1, 1) #Couleur de la face en face
         topid = cube.getValTab(4, 1, 1) #Couleur de la face au dessus
         if (id == 0):
@@ -146,18 +216,76 @@ class Movement():
                 mc.right(cube, id)
             elif (topid == 3):
                 mc.down(cube, id)
-        mr.right(servo)
+        mr.left(servo)
         servo.close()
 
     def invLeft(self, cube):
         servo = maestro.Controller()
-        for i in range(0,3):
-            self.left(cube)
-        mr.invLeft(servo)
+        mr = MovementRobot.Movement()
+        mc = MovementCube.Movement()
+        id = cube.getValTab(0, 1, 1) #Couleur de la face en face
+        topid = cube.getValTab(4, 1, 1) #Couleur de la face au dessus
+        if (id == 0):
+            if (topid == 1):
+                mc.invUp(cube, id)
+            elif (topid == 3):
+                mc.invDown(cube, id)
+            elif (topid == 4):
+                mc.invLeft(cube, id)
+            elif (topid == 5):
+                mc.invRight(cube, id)
+        elif (id == 1):
+            if (topid == 0):
+                mc.invDown(cube, id)
+            elif (topid == 2):
+                mc.invUp(cube, id)
+            elif (topid == 4):
+                mc.invLeft(cube, id)
+            elif (topid == 5):
+                mc.invRight(cube, id)
+        elif (id == 2):
+            if (topid == 1):
+                mc.invDown(cube, id)
+            elif (topid == 3):
+                mc.invUp(cube, id)
+            elif (topid == 4):
+                mc.invLeft(cube, id)
+            elif (topid == 5):
+                mc.invRight(cube, id)
+        elif (id == 3):
+            if (topid == 0):
+                mc.invUp(cube, id)
+            elif (topid == 2):
+                mc.invDown(cube, id)
+            elif (topid == 4):
+                mc.invLeft(cube, id)
+            elif (topid == 5):
+                mc.invRight(cube, id)
+        elif (id == 4):
+            if (topid == 0):
+                mc.invLeft(cube, id)
+            elif (topid == 1):
+                mc.invDown(cube, id)
+            elif (topid == 2):
+                mc.invRight(cube, id)
+            elif (topid == 3):
+                mc.invUp(cube, id)
+        elif (id == 5):
+            if (topid == 0):
+                mc.invLeft(cube, id)
+            elif (topid == 1):
+                mc.invUp(cube, id)
+            elif (topid == 2):
+                mc.invRight(cube, id)
+            elif (topid == 3):
+                mc.invDown(cube, id)
+        mr.invRight(servo)
         servo.close()
 
     def up(self, cube):
         servo = maestro.Controller()
+        mr = MovementRobot.Movement()
+        mc = MovementCube.Movement()
         id = cube.getValTab(0, 1, 1) #Couleur de la face en face
         topid = cube.getValTab(4, 1, 1) #Couleur de la face au dessus
         if (id == 0):
@@ -214,18 +342,76 @@ class Movement():
                 mc.down(cube, id)
             elif (topid == 3):
                 mc.left(cube, id)
-        mr.right(servo)
+        mr.up(servo)
         servo.close()
 
     def invUp(self, cube):
         servo = maestro.Controller()
-        for i in range(0,3):
-            self.up(cube)
-        mr.invUp(servo)
+        mr = MovementRobot.Movement()
+        mc = MovementCube.Movement()
+        id = cube.getValTab(0, 1, 1) #Couleur de la face en face
+        topid = cube.getValTab(4, 1, 1) #Couleur de la face au dessus
+        if (id == 0):
+            if (topid == 1):
+                mc.invRight(cube, id)
+            elif (topid == 3):
+                mc.invLeft(cube, id)
+            elif (topid == 4):
+                mc.invUp(cube, id)
+            elif (topid == 5):
+                mc.invDown(cube, id)
+        elif (id == 1):
+            if (topid == 0):
+                mc.invLeft(cube, id)
+            elif (topid == 2):
+                mc.invRight(cube, id)
+            elif (topid == 4):
+                mc.invUp(cube, id)
+            elif (topid == 5):
+                mc.invDown(cube, id)
+        elif (id == 2):
+            if (topid == 1):
+                mc.invLeft(cube, id)
+            elif (topid == 3):
+                mc.invRight(cube, id)
+            elif (topid == 4):
+                mc.invUp(cube, id)
+            elif (topid == 5):
+                mc.invDown(cube, id)
+        elif (id == 3):
+            if (topid == 0):
+                mc.invRight(cube, id)
+            elif (topid == 2):
+                mc.invLeft(cube, id)
+            elif (topid == 4):
+                mc.invUp(cube, id)
+            elif (topid == 5):
+                mc.invDown(cube, id)
+        elif (id == 4):
+            if (topid == 0):
+                mc.invUp(cube, id)
+            elif (topid == 1):
+                mc.invLeft(cube, id)
+            elif (topid == 2):
+                mc.invDown(cube, id)
+            elif (topid == 3):
+                mc.invRight(cube, id)
+        elif (id == 5):
+            if (topid == 0):
+                mc.invUp(cube, id)
+            elif (topid == 1):
+                mc.invRight(cube, id)
+            elif (topid == 2):
+                mc.invDown(cube, id)
+            elif (topid == 3):
+                mc.invLeft(cube, id)
+        mr.invRight(servo)
         servo.close()
 
     def down(self, cube):
         servo = maestro.Controller()
+        mr = MovementRobot.Movement()
+        mc = MovementCube.Movement()
         id = cube.getValTab(0, 1, 1) #Couleur de la face en face
         topid = cube.getValTab(4, 1, 1) #Couleur de la face au dessus
         if (id == 0):
@@ -282,14 +468,70 @@ class Movement():
                 mc.up(cube, id)
             elif (topid == 3):
                 mc.right(cube, id)
-        mr.right(servo)
+        mr.down(servo)
         servo.close()
 
     def invDown(self, cube):
         servo = maestro.Controller()
-        for i in range(0,3):
-            self.down(cube)
-        mr.invDown(servo)
+        mr = MovementRobot.Movement()
+        mc = MovementCube.Movement()
+        id = cube.getValTab(0, 1, 1) #Couleur de la face en face
+        topid = cube.getValTab(4, 1, 1) #Couleur de la face au dessus
+        if (id == 0):
+            if (topid == 1):
+                mc.invLeft(cube, id)
+            elif (topid == 3):
+                mc.invRight(cube, id)
+            elif (topid == 4):
+                mc.invDown(cube, id)
+            elif (topid == 5):
+                mc.invUp(cube, id)
+        elif (id == 1):
+            if (topid == 0):
+                mc.invRight(cube, id)
+            elif (topid == 2):
+                mc.invLeft(cube, id)
+            elif (topid == 4):
+                mc.invDown(cube, id)
+            elif (topid == 5):
+                mc.invUp(cube, id)
+        elif (id == 2):
+            if (topid == 1):
+                mc.invRight(cube, id)
+            elif (topid == 3):
+                mc.invLeft(cube, id)
+            elif (topid == 4):
+                mc.invDown(cube, id)
+            elif (topid == 5):
+                mc.invUp(cube, id)
+        elif (id == 3):
+            if (topid == 0):
+                mc.invLeft(cube, id)
+            elif (topid == 2):
+                mc.invRight(cube, id)
+            elif (topid == 4):
+                mc.invDown(cube, id)
+            elif (topid == 5):
+                mc.invUp(cube, id)
+        elif (id == 4):
+            if (topid == 0):
+                mc.invDown(cube, id)
+            elif (topid == 1):
+                mc.invRight(cube, id)
+            elif (topid == 2):
+                mc.invUp(cube, id)
+            elif (topid == 3):
+                mc.invLeft(cube, id)
+        elif (id == 5):
+            if (topid == 0):
+                mc.invDown(cube, id)
+            elif (topid == 1):
+                mc.invLeft(cube, id)
+            elif (topid == 2):
+                mc.invUp(cube, id)
+            elif (topid == 3):
+                mc.invRight(cube, id)
+        mr.invRight(servo)
         servo.close()
 
     def x(self, cube):
