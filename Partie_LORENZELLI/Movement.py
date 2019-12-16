@@ -3,6 +3,7 @@ import RubiksCube
 import maestro
 import MovementRobot
 import MovementCube
+import time
 
 """ Les fonctions de mouvements dans ce fichier permettent d'appeler directement
 les fonctions concernées pour le cube virtuel et le cube physique.
@@ -36,6 +37,7 @@ class Movement():
         mc = MovementCube.Movement()
         id = cube.getValTab(0, 1, 1) #Couleur de la face en face
         topid = cube.getValTab(4, 1, 1) #Couleur de la face au dessus
+        print("id:",id,"topid:",topid)
         if (id == 0):
             if (topid == 1):
                 mc.down(cube, id)
@@ -279,7 +281,7 @@ class Movement():
                 mc.invRight(cube, id)
             elif (topid == 3):
                 mc.invDown(cube, id)
-        mr.invRight(servo)
+        mr.invLeft(servo)
         servo.close()
 
     def up(self, cube):
@@ -405,7 +407,7 @@ class Movement():
                 mc.invDown(cube, id)
             elif (topid == 3):
                 mc.invLeft(cube, id)
-        mr.invRight(servo)
+        mr.invUp(servo)
         servo.close()
 
     def down(self, cube):
@@ -531,21 +533,24 @@ class Movement():
                 mc.invUp(cube, id)
             elif (topid == 3):
                 mc.invRight(cube, id)
-        mr.invRight(servo)
+        mr.invDown(servo)
         servo.close()
 
-    def x(self, cube):
+    def pictures(self):
         servo = maestro.Controller()
         mr = MovementRobot.Movement()
-        mc = MovementCube.Movement()
-        mc.x(cube)
         mr.x(servo)
-        servo.close()
-
-    def y(self, cube):
-        servo = maestro.Controller()
-        mr = MovementRobot.Movement()
-        mc = MovementCube.Movement()
-        mc.x(cube)
+        time.sleep(5) #Temps de prise de photo
+        mr.x(servo)
+        time.sleep(5) #Temps de prise de photo
+        mr.x(servo)
+        time.sleep(5) #Temps de prise de photo
+        mr.y(servo)
+        time.sleep(5) #Temps de prise de photo
+        mr.y(servo)
+        time.sleep(5) #Temps de prise de photo
+        mr.y(servo)
+        time.sleep(5) #Temps de prise de photo
+        mr.y(servo)
         mr.x(servo)
         servo.close()

@@ -1,32 +1,31 @@
 import maestro
-import MovementRobot
-import MovementCube
 import Movement
+import MovementCube
 import RubiksCube
 import time
 
-"""servo = maestro.Controller()
-cube = RubiksCube.RubiksCube()
-mr = MovementRobot.Movement()
+"""cube = RubiksCube.RubiksCube()
 mc = MovementCube.Movement()
-mr.initialisation(servo)
-mc.right(cube, 5)
-mr.right(servo)
-print(cube.getTab())
-servo.close()"""
-
+mc.up(cube, 5)
+print(cube.getTab())"""
 servo = maestro.Controller()
 cube = RubiksCube.RubiksCube()
 move = Movement.Movement()
-mr = MovementRobot.Movement()
-mr.initialisation(servo)
-for i in range(0,6):
-    
-    print(cube.getTab())
-    move.down(cube)
-    move.up(cube)
-    move.right(cube)
-    move.left(cube)
-    print(cube.getTab())
-mr.fin(servo)
+move.initialisation()
+print(cube.getTab())
+move.x(cube)
+print(cube.getTab())
+move.x(cube)
+print(cube.getTab())
+move.x(cube)
+print(cube.getTab())
+move.y(cube)
+print(cube.getTab())
+move.y(cube)
+print(cube.getTab())
+move.y(cube)
+print(cube.getTab())
+move.right(cube)
+print(cube.getTab())
+move.fin()
 servo.close()

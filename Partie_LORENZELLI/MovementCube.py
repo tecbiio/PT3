@@ -287,6 +287,7 @@ class Movement:
         for i in range(0,3):
             self.down(cube, id)
 
+    # Pas utilisée
     def x(self, cube):
         tab = cube.getTab()
         # Changements des couleurs des faces
@@ -364,6 +365,7 @@ class Movement:
         tab[4,1,0] = tmp2
         tab[4,2,0] = tmp1"""
 
+    # Pas utilisée
     def y(self, cube):
         tab = cube.getTab()
         # Changements des couleurs des faces
