@@ -1,123 +1,184 @@
-import numpy as np
-#import DeplacementCorners as dc
-import DeplacementEdges as de
+from Deplacement import *
 import random as r
 
-class Resolution:
-    #Création tableau (à récupérer après)
-    def main(self):
-        tab = array([1,2,3,4,5,6][1,2,3][1,2,3])
-        tab[1][1][1]="O"
-        tab[1][1][2]="O"
-        tab[1][1][3]="R"
-        tab[1][2][1]="G"
-        tab[1][2][2]="W"
-        tab[1][2][3]="R" # 1ère face Position interchangeable
-        tab[1][3][1]="W"
-        tab[1][3][2]="B"
-        tab[1][3][3]="G"
-        tab[2][1][1]="W"
-        tab[2][1][2]="B"
-        tab[2][1][3]="Y"
-        tab[2][2][1]="W" # 2nde face Position interchangeable
-        tab[2][2][2]="R"
-        tab[2][2][3]="B"
-        tab[2][3][1]="Y"
-        tab[2][3][2]="G"
-        tab[2][3][3]="R"
-        tab[3][1][1]="R"
-        tab[3][1][2]="O"
-        tab[3][1][3]="G"
-        tab[3][2][1]="W"
-        tab[3][2][2]="Y"
-        tab[3][2][3]="R"
-        tab[3][3][1]="W"
-        tab[3][3][2]="O"
-        tab[3][3][3]="R"
-        tab[4][1][1]="W"
-        tab[4][1][2]="Y"
-        tab[4][1][3]="Y"
-        tab[4][2][1]="B"
-        tab[4][2][2]="O"
-        tab[4][2][3]="W"
-        tab[4][3][1]="B"
-        tab[4][3][2]="G"
-        tab[4][3][3]="B"
-        tab[5][1][1]="O"
-        tab[5][1][2]="O"
-        tab[5][1][3]="O"
-        tab[5][2][1]="Y"
-        tab[5][2][2]="G"
-        tab[5][2][3]="R"
-        tab[5][3][1]="Y"
-        tab[5][3][2]="W"
-        tab[5][3][3]="B"
-        tab[6][1][1]="O"
-        tab[6][1][2]="Y"
-        tab[6][1][3]="G"
-        tab[6][2][1]="R"
-        tab[6][2][2]="B"
-        tab[6][2][3]="Y"
-        tab[6][3][1]="B"
-        tab[6][3][2]="G"
-        tab[6][3][3]="G"
 
-        #Fin création
 
         #Modélisation arrêtes / coins
 
-        #           |18|17|16|
-        #           |19|B |15|
-        #           |01|02|03|
-        # |18|19|01| |01|02|03| |03|15|16| |16|17|18|
-        # |22|O |04| |04|W |06| |06|R |20| |20|Y |22|
-        # |13|14|07| |07|08|09| |09|10|11| |11|12|13|
-        #             |07|08|09|
-        #             |14|G |10|
-        #             |13|12|11|
+        #           |O|Y|G|
+        #           |R|B|Y|
+        #           |B|G|G|
+        # |W|Y|Y| |O|O|R| |W|B|Y| |R|O|G|
+        # |B|O|W| |G|W|R| |W|R|B| |W|Y|R|
+        # |B|G|B| |W|B|G| |Y|G|R| |W|O|R|
+        #             |O|O|O|
+        #             |Y|G|R|
+        #             |Y|W|B|
+    
+cube="OORGWRWBGWBYWRBYGRROGWYRWORWYYBOWBGBOOOYGRYWBOYGRBYBGG" #Exemple de String reçue
+compteur=0 #Nombre de fonctions à effectuer (savoir le temps de résolution)
 
-        #for i in range (1,6):
-            #for j in range (1,3):
-                #for k in range (1,3):
-                    #print(tab[i][j][k])
-                
+#AFFICHAGE CUBE A RESOUDRE
+for i in cube:
+    print(i,end=" ")
+print("")
+
+#RESOLUTION ARRETES
+
+pos_echangeable_bord_1= cube[5]
+pos_echangeable_bord_2= cube[12]
+
+cube_init=cube #Sauvegarde le cube initial (sert pour la parité)
+test = 0
+pos_echangeable_bord_1= cube[5]
+pos_echangeable_bord_2= cube[12]
+pos_echangeable_bord = pos_echangeable_bord_1+pos_echangeable_bord_2
+while test != 5:
+    test=0
+    if pos_echangeable_bord == "WR" or pos_echangeable_bord == "RW": #Test Résolution bords (Le cube devant être échangé est bien placé)    
+        for i in range (0,5):  #On vérifie alors si le cube est résolu : Pour chaque centre on regarde si tous les bords sont bien placés
+            if (cube[i*9+4]==cube[i*9+1]) and (cube[i*9+4]==cube[i*9+3]) and (cube[i*9+4]==cube[i*9+5]) and (cube[i*9+4]==cube[i*9+7]):
+                test = test + 1
+        if test != 5:
+            pos_echangeable_bord_1="0"
+            pos_echangeable_bord_2="0"
+            while pos_echangeable_bord_1==pos_echangeable_bord_2: # Si le cube n'est pas résolu, on change alors ce bord avec un aléatoire
+                alea1=r.randint(0,5)
+                alea2=r.randint(0,5)
+                if alea1==0:
+                    pos_echangeable_bord_1="W"
+                if alea2==0:
+                    pos_echangeable_bord_2="W"
+                if alea1==1:
+                    pos_echangeable_bord_1="R"
+                if alea2==1:
+                    pos_echangeable_bord_2="R"
+                if alea1==2:
+                    pos_echangeable_bord_1="Y"
+                if alea2==2:
+                    pos_echangeable_bord_2="Y"
+                if alea1==3:
+                    pos_echangeable_bord_1="O"
+                if alea2==3:
+                    pos_echangeable_bord_2="O"
+                if alea1==4:
+                    pos_echangeable_bord_1="G"
+                if alea2==4:
+                    pos_echangeable_bord_2="G"
+                if alea1==5:
+                    pos_echangeable_bord_1="B"
+                if alea2==5:
+                    pos_echangeable_bord_2="B"
+                if pos_echangeable_bord_1=="W" and pos_echangeable_bord_2=="R" or pos_echangeable_bord_1=="R" and pos_echangeable_bord_2=="W": #Teste si position ne change pas
+                    pos_echangeable_bord_1="0"
+                    pos_echangeable_bord_2="0"
+                if pos_echangeable_bord_1=="W" and pos_echangeable_bord_2=="Y" or pos_echangeable_bord_1=="Y" and pos_echangeable_bord_2=="W" or pos_echangeable_bord_1=="B" and pos_echangeable_bord_2=="G" or pos_echangeable_bord_1=="G" and pos_echangeable_bord_2=="B" or pos_echangeable_bord_1=="O" and pos_echangeable_bord_2=="R" or pos_echangeable_bord_1=="R" and pos_echangeable_bord_2=="O":#Teste si la position demandée est possible (par exemple, pas de lien entre la couleur blanche et la couleur jaune)
+                    pos_echangeable_bord_1="0"
+                    pos_echangeable_bord_2="0" 
+            pos_echangeable_bord = pos_echangeable_bord_1+pos_echangeable_bord_2           
+    else:
+        '''Deplacement.deplacerEdges(Deplacement,cube2,pos_echangeable_bord)'''#Déplace le cube
+        cube= Deplacement.modifierEdges(Deplacement,cube,pos_echangeable_bord) #Modifie le cube en échangeant l'arrète pos_echangeable_bord avec l'arrète placée en position "WR"
+        #Les fonction Deplacement.swapEdges et Deplacement.swapCorners inversent deux cubes à côté d'eux, il faut le prendre en compte aussi
+        tmp=cube[2]
+        cube[2]=cube[8]
+        cube[8]=tmp
+        tmp=cube[53]
+        cube[53]=cube[15]
+        cube[15]=tmp
+        tmp=cube[9]
+        cube[9]=cube[38]
+        cube[38]=tmp
+        pos_echangeable_bord = cube[5]+cube[12] #Nouvelle arrète en position "WR"
+        compteur=compteur+1
+
         
-        # Boucle plaçant l'arrète ab à sa bonne place
-        # PAS OPTIMAL
-        # PAS TESTABLE TANT QUE LES FONCTIONS "MOUVEMENT" NE CHANGENT RIEN A MON TABLEAU
-        test = 0
-        while test == 0:
-            a = tab[1][2][3]
-            b = tab[2][2][1]
-            fonc = a + b
-            if fonc == "WR":
-                for i in range (1,6):
-                    if (tab[i][2][2]==tab[i][2][1]) and (tab[i][2][2]==tab[i][1][2]) and (tab[i][2][2]==tab[i][2][3]) and (tab[i][2][2]==tab[i][3][2]):
-                        test = 1
-                if test == 0:
-                    alea1 = r.randint(1,6)
-                    if (alea1 >= 4):
-                        if (alea1 == 5) or (alea1 == 6):
-                            alea1b = 2
-                        else:  
-                            alea1b = 1
-                    else:
-                        alea1b = alea1 + 1
-                    
-                    
-                    alea2 = r.randint(1,2)
-                    if alea2 == 2:
-                        alea2 = 3
-                        alea2b = 1
-                    else:
-                        alea2b = 3
-                    
-                    a = tab[alea1][2][alea2]
-                    b = tab[alea1b][2][alea2b]
-                    fonc = a + b
-                        
-            de.deplacer(fonc)
+
+#AFFICHAGE ARRETES RESOLUES    
+for i in cube:
+    print(i,end=" ")
+print("")
+print(compteur)
+
+#RESOLUTION COINS
+pos_echangeable_bord_1=cube[29]
+pos_echangeable_bord_2=cube[51]
+pos_echangeable_bord_3=cube[0]
+pos_echangeable_bord = pos_echangeable_bord_1+pos_echangeable_bord_2+pos_echangeable_bord_3
+test=0
+while test != 5:
+    test=0
+    if pos_echangeable_bord == "OBW" or pos_echangeable_bord == "WOB" or pos_echangeable_bord == "BWO": #Test Résolution coins (Le cube devant être échangé est bien placé)    
+        for i in range (0,5):  #On vérifie alors si le cube est résolu : Pour chaque centre on regarde si tous les coins sont bien placés
+            if (cube[i*9+4]==cube[i*9]) and (cube[i*9+4]==cube[i*9+2]) and (cube[i*9+4]==cube[i*9+6]) and (cube[i*9+4]==cube[i*9+8]):
+                test = test + 1
+        if test != 5:
+            pos_echangeable_bord_1="0"
+            pos_echangeable_bord_2="0"
+            pos_echangeable_bord_3="0"
+            while pos_echangeable_bord_1==pos_echangeable_bord_2 or pos_echangeable_bord_1==pos_echangeable_bord_3 or pos_echangeable_bord_2==pos_echangeable_bord_3: # Si le cube n'est pas résolu, on change alors ce coin avec un aléatoire
+                alea1=r.randint(0,5)
+                alea2=r.randint(0,5)
+                alea3=r.randint(0,5)
+                if alea1==0:
+                    pos_echangeable_bord_1="W"
+                if alea2==0:
+                    pos_echangeable_bord_2="W"
+                if alea3==0:
+                    pos_echangeable_bord_3="W"
+                if alea1==1:
+                    pos_echangeable_bord_1="R"
+                if alea2==1:
+                    pos_echangeable_bord_2="R"
+                if alea3==1:
+                    pos_echangeable_bord_3="R"
+                if alea1==2:
+                    pos_echangeable_bord_1="Y"
+                if alea2==2:
+                    pos_echangeable_bord_2="Y"
+                if alea3==2:
+                    pos_echangeable_bord_3="Y"
+                if alea1==3:
+                    pos_echangeable_bord_1="O"
+                if alea2==3:
+                    pos_echangeable_bord_2="O"
+                if alea3==3:
+                    pos_echangeable_bord_3="O"
+                if alea1==4:
+                    pos_echangeable_bord_1="G"
+                if alea2==4:
+                    pos_echangeable_bord_2="G"
+                if alea3==4:
+                    pos_echangeable_bord_3="G"
+                if alea1==5:
+                    pos_echangeable_bord_1="B"
+                if alea2==5:
+                    pos_echangeable_bord_2="B"
+                if alea3==5:
+                    pos_echangeable_bord_3="B"
+                ##Test différent qu'avec les arrètes: les coins sont définis dans seulement un ordre, il faut donc empêcher la création d'un ordre différent##
+                if pos_echangeable_bord_1=="B" and pos_echangeable_bord_2=="R" and pos_echangeable_bord_3=="W" or pos_echangeable_bord_1=="W" and pos_echangeable_bord_2=="B" and pos_echangeable_bord_3=="R" or pos_echangeable_bord_1=="R" and pos_echangeable_bord_2=="W" and pos_echangeable_bord_3=="B" or pos_echangeable_bord_1=="B" and pos_echangeable_bord_2=="Y" and pos_echangeable_bord_3=="R" or pos_echangeable_bord_1=="R" and pos_echangeable_bord_2=="B" and pos_echangeable_bord_3=="Y" or pos_echangeable_bord_1=="Y" and pos_echangeable_bord_2=="R" and pos_echangeable_bord_3=="B" or pos_echangeable_bord_1=="B" and pos_echangeable_bord_2=="W" and pos_echangeable_bord_3=="O" or pos_echangeable_bord_1=="O" and pos_echangeable_bord_2=="B" and pos_echangeable_bord_3=="W" or pos_echangeable_bord_1=="W" and pos_echangeable_bord_2=="O" and pos_echangeable_bord_3=="B" or pos_echangeable_bord_1=="B" and pos_echangeable_bord_2=="O" and pos_echangeable_bord_3=="Y" or pos_echangeable_bord_1=="Y" and pos_echangeable_bord_2=="B" and pos_echangeable_bord_3=="O" or pos_echangeable_bord_1=="O" and pos_echangeable_bord_2=="Y" and pos_echangeable_bord_3=="B" or pos_echangeable_bord_1=="G" and pos_echangeable_bord_2=="R" and pos_echangeable_bord_3=="Y" or pos_echangeable_bord_1=="R" and pos_echangeable_bord_2=="Y" and pos_echangeable_bord_3=="G" or pos_echangeable_bord_1=="Y" and pos_echangeable_bord_2=="G" and pos_echangeable_bord_3=="R" or pos_echangeable_bord_1=="G" and pos_echangeable_bord_2=="Y" and pos_echangeable_bord_3=="O" or pos_echangeable_bord_1=="Y" and pos_echangeable_bord_2=="O" and pos_echangeable_bord_3=="G" or pos_echangeable_bord_1=="O" and pos_echangeable_bord_2=="G" and pos_echangeable_bord_3=="Y" or pos_echangeable_bord_1=="G" and pos_echangeable_bord_2=="W" and pos_echangeable_bord_3=="R" or pos_echangeable_bord_1=="W" and pos_echangeable_bord_2=="R" and pos_echangeable_bord_3=="G" or pos_echangeable_bord_1=="R" and pos_echangeable_bord_2=="G" and pos_echangeable_bord_3=="W" or pos_echangeable_bord_1=="G" and pos_echangeable_bord_2=="O" and pos_echangeable_bord_3=="W" or pos_echangeable_bord_1=="O" and pos_echangeable_bord_2=="N" and pos_echangeable_bord_3=="G" or pos_echangeable_bord_1=="N" and pos_echangeable_bord_2=="G" and pos_echangeable_bord_3=="O":
+                    pos_echangeable_bord = pos_echangeable_bord_1+pos_echangeable_bord_2+pos_echangeable_bord_3
+                else:
+                    pos_echangeable_bord_1="0"
+                    pos_echangeable_bord_2="0"
+                    pos_echangeable_bord_3="0"
+    else:
+        '''Deplacement.deplacerCorners(Deplacement,cube2,pos_echangeable_bord)'''#Tourne le cube
+        cube= Deplacement.modifierCorners(Deplacement,cube,pos_echangeable_bord) #Modifie le cube en échangeant l'arrète pos_echangeable_bord avec l'arrète placée en position "WR"
+        #Les fonction Deplacement.swapEdges et Deplacement.swapCorners inversent deux cubes à côté d'eux, il faut le prendre en compte aussi
+        tmp=cube[1]
+        cube[1]=cube[3]
+        cube[3]=tmp
+        tmp=cube[52]
+        cube[52]=cube[32]
+        cube[32]=tmp
+        pos_echangeable_bord = cube[29]+cube[51]+cube[0] #Nouveau coin en position "OBW"
+        compteur=compteur+1
 
 
-
-
+#AFFICHAGE CUBE RESOLU
+for i in cube:
+    print(i, end=" ")
+print("")
+print(compteur)
